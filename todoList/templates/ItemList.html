@@ -1,0 +1,13 @@
+{% extends "master.html"%}
+
+{% block title %}
+    Items List
+{% endblock %}
+
+{% block content %}
+<ul>
+    {% for l in ListItems %}
+        <li>{{l.name}}</li>
+    {% endfor %}
+</ul>
+{% endblock %}
