@@ -5,9 +5,9 @@
 {% endblock %}
 
 {% block content %}
-<ul>
+<ul class="list-group">
     {% for l in ListItems %}
-        <li>{{l.name}}</li>
+        <li class="list-group-item"><a href="tasks/{{l.id}}">{{l.name}}</li>
     {% endfor %}
 </ul>
 {% endblock %}

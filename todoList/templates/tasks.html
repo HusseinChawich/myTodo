@@ -1,0 +1,31 @@
+{% extends "master.html"%}
+
+{% block title %}
+    Tasks List
+{% endblock %}
+
+{% block content %}
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Date Created</th>
+        <th scope="col">Task</th>
+        <th scope="col">Finished On</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for t in tasks %}
+      <tr>
+        <th scope="row">{{t.id}}</th>
+        <td>{{t.dateCreated}}</td>
+        <td>{{t.taskText}}</td>
+        <td>{{t.finishedAt}}</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  <a href="/todo"><button type="button" class="btn btn-secondary">Back</button></a>
+
+{% endblock %}
