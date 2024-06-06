@@ -5,9 +5,28 @@
 {% endblock %}
 
 {% block content %}
-<ul class="list-group">
-    {% for l in ListItems %}
-        <li class="list-group-item"><a href="tasks/{{l.id}}">{{l.name}}</li>
-    {% endfor %}
-</ul>
+
+<div class="row">
+    <div class="col">
+        <ul class="list-group">
+            {% for l in ListItems %}
+                <a href="tasks/{{l.id}}"><li class="list-group-item">{{l.name}}</li></a>
+                {% empty %}
+                <li>No items inserted</li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+
+<form method="post">
+  <div class="row" style="margin-top: 20px;" >
+    <div class="col-3">
+        <input class="form-control" type="text" placeholder="List Name" name="list_name" required>
+    </div>
+    <div class="col">
+        <button type="submit" class="btn btn-primary">Save</button>
+    </div>
+  </div>
+</form> 
+
 {% endblock %}

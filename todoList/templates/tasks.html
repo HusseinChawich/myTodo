@@ -18,11 +18,13 @@
     <tbody>
     {% for t in tasks %}
       <tr>
-        <th scope="row">{{t.id}}</th>
+        <th scope="row">{{forloop.counter}}</th>
         <td>{{t.dateCreated}}</td>
         <td>{{t.taskText}}</td>
         <td>{{t.finishedAt}}</td>
       </tr>
+      {% empty %}
+        <td>No items inserted</td><td></td><td><td></td>
     {% endfor %}
     </tbody>
   </table>
