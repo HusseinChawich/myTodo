@@ -10,7 +10,7 @@
     <div class="col">
         <ul class="list-group">
             {% for l in ListItems %}
-                <a href="tasks/{{l.id}}"><li class="list-group-item">{{l.name}}</li></a>
+                <li onclick="window.location = 'tasks/{{l.id}}'" class="list-group-item">{{l.name}}</li>
                 {% empty %}
                 <li>No items inserted</li>
             {% endfor %}
@@ -18,15 +18,26 @@
     </div>
 </div>
 
-<form method="post">
-  <div class="row" style="margin-top: 20px;" >
-    <div class="col-3">
-        <input class="form-control" type="text" placeholder="List Name" name="list_name" required>
+{% comment %}
+<form method="post", action="">
+{% csrf_token %}
+    <div class="row" style="margin-top: 20px;" >
+        <div class="col-3">
+            <input class="form-control" type="text" placeholder="List Name" name="list_name" required>
+        </div>
+
+        <div class="col">
+            <button class="btn btn-primary" type="submit">Save</button>
+        </div>
+        
     </div>
+</form>
+{% endcomment %}
+
+<div class="row" style="margin-top: 20px;" >
     <div class="col">
-        <button type="submit" class="btn btn-primary">Save</button>
+        <button class="btn btn-primary" onclick="window.location = './add_item'">Add Item</button>
     </div>
-  </div>
-</form> 
+</div>
 
 {% endblock %}
